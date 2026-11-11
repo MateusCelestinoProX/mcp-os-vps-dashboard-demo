@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="description" content="MCP OS — Linux Server Home & Control Hub">
+  <meta name="theme-color" content="#040407">
+  <title>MCP OS // LINUX SERVER CORE</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css?v=20261016_v5">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'></polygon><polyline points='2 17 12 22 22 17'></polyline><polyline points='2 12 12 17 22 12'></polyline></svg>">
+</head>
+<body>
+
+  <!-- Demo Smooth Splash & Entrance Experience -->
+  <div id="demo-splash-screen" class="demo-splash-overlay">
+    <div class="demo-splash-content">
+      <div class="demo-splash-glow"></div>
+      <div class="demo-splash-badge">
+        <span class="demo-pulse-dot"></span>
+        <span>PORTFOLIO DEMO EXPERIENCE · ENTERPRISE SUITE</span>
+      </div>
+      <div class="demo-splash-icon-wrap">
+        <svg class="demo-splash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="demo-splash-title">MCP OS <span class="demo-splash-highlight">// CLOUD HUB</span></h1>
+      <p class="demo-splash-subtitle">Virtual Cloud Infrastructure, Containers & Live Telemetry Engine</p>
+      
+      <div class="demo-boot-terminal mono" id="demo-boot-terminal">
+        <div class="boot-line active" id="boot-line-1"><span class="boot-tag">[BOOT]</span> Inicializando ambiente virtual de demonstração...</div>
+        <div class="boot-line" id="boot-line-2"><span class="boot-tag">[ENGINE]</span> Carregando 34 Shaders WebGL e aceleração gráfica...</div>
+        <div class="boot-line" id="boot-line-3"><span class="boot-tag">[CLUSTER]</span> Conectando contêineres Docker e nós de telemetria...</div>
+        <div class="boot-line" id="boot-line-4"><span class="boot-tag">[READY]</span> Sistema operacional simulado pronto para exploração.</div>
+      </div>
+
+      <div class="demo-progress-container">
+        <div class="demo-progress-track">
+          <div class="demo-progress-fill" id="demo-progress-bar"></div>
+        </div>
+        <div class="demo-progress-labels mono">
+          <span id="demo-progress-status">INICIALIZANDO SUBSISTEMAS...</span>
+          <span id="demo-progress-pct">0%</span>
+        </div>
+      </div>
+
+      <button id="btn-enter-demo" class="demo-enter-btn mono">
+        <span>EXPLORAR DEMO INTERATIVA</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Background Engine: Crossfade Slideshow & Shaders WebGL -->
+  <div id="bg-container">
+    <div class="bg-slide active" id="bg-slide-1"></div>
+    <div class="bg-slide" id="bg-slide-2"></div>
+    <div id="bg-webgl-container"></div>
+  </div>
+  <div id="bg-overlay"></div>
+
+  <!-- Global Application Shell -->
+  <div id="app-shell">
+
+    <!-- Top System Header (High Z-Index Stacking Context) -->
+    <header id="top-bar" class="glass-panel">
+      <div class="top-left">
+        <div class="system-brand" id="brand-home-trigger" title="Recarregar Visão Inicial">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <span class="brand-title">MCP OS</span>
+          <span class="brand-badge"><span class="badge-prefix">LINUX // </span>CLOUD CORE</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs (Center) -->
+      <div class="top-center">
+        <nav class="view-tabs-container">
+          <button class="view-tab active" id="tab-heroes" data-view="heroes">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="tab-icon">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            </svg>
+            <span>CORE PLATFORMS</span>
+          </button>
+          <button class="view-tab" id="tab-monitoring" data-view="monitoring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="tab-icon">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            <span>SERVER TELEMETRY</span>
+            <span class="tab-pulse-badge">LIVE</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Top Right Actions & Controls -->
+      <div class="top-right">
+        <!-- Quick Host Telemetry Pill -->
+        <div class="quick-telemetry-pill">
+          <span class="tele-dot green-pulse"></span>
+          <div class="demo-mode-pill"><span class="demo-pulse-dot"></span><span>DEMO</span></div>
+          <span class="mono tele-ip">198.51.100.42</span>
+          <span class="tele-sep" style="opacity: 0.3;">·</span>
+          <span class="mono" id="top-ram-quick">-- GB</span>
+        </div>
+
+        <!-- Background / Atmosphere Selector -->
+        <!-- Replay Intro Button -->
+        <button id="btn-replay-intro" class="glass-button-sm" title="Rever Abertura Cinematográfica da Demo">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>INTRO</span>
+        </button>
+
+        <div class="bg-switch-control">
+          <button id="btn-bg-toggle" class="glass-button-sm" title="Catálogo de Shaders e Wallpapers">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <span id="bg-current-name">ATMOSFERA</span>
+          </button>
+        </div>
+
+        <!-- Direct Server Monitor Toggle Button -->
+        <button id="btn-toggle-monitor" class="glass-button-sm" title="Alternar Painel Completo de Monitoramento Web">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span id="monitor-btn-label">MONITOR FULL GLASS</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Workspace -->
+    <main id="main-stage">
+      
+      <!-- ================================================================= -->
+      <!-- VIEW 1: CORE PLATFORMS & HERO SESSIONS (Cards Enriquecidos)        -->
+      <!-- ================================================================= -->
+      <div id="heroes-view" class="view-container active">
+        
+        <!-- LEFT CORNER HUD: Glances & Docker Live Telemetry -->
+        <aside id="glances-docker-hud" class="glass-panel">
+          <div class="hud-header">
+            <div class="hud-title-wrap">
+              <svg class="hud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+              <span class="hud-title">GLANCES HUD</span>
+            </div>
+            <span class="hud-live-tag">
+              <span class="tele-dot green-pulse"></span>
+              LIVE
+            </span>
+          </div>
+
+          <!-- Docker Cluster Summary -->
+          <div class="hud-subhead">
+            <span>CLUSTER DOCKER</span>
+            <span class="subhead-count mono" id="docker-count">6 ATIVOS</span>
+          </div>
+
+          <!-- Containers Live List -->
+          <div class="docker-containers-list" id="docker-containers-list">
+            <div class="container-hud-item loading-skeleton">
+              <div class="c-top">
+                <span class="c-name mono">Carregando contêineres...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Resources Bars -->
+          <div class="hud-divider"></div>
+          <div class="hud-subhead">
+            <span>RECURSOS DO SERVIDOR</span>
+            <span class="subhead-badge mono" id="hud-vps-uptime">142d 08h</span>
+          </div>
+
+          <div class="hud-meter-group">
+            <div class="meter-labels">
+              <span>MEMÓRIA RAM</span>
+              <span class="mono" id="hud-ram-text">4.28 / 16.0 GB (26.8%)</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" id="hud-ram-bar" style="width: 26.8%;"></div>
+            </div>
+          </div>
+
+          <div class="hud-meter-group">
+            <div class="meter-labels">
+              <span>DISCO NVME (/)</span>
+              <span class="mono" id="hud-disk-text">42.6 / 500.0 GB (8.5%)</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" id="hud-disk-bar" style="width: 8.5%;"></div>
+            </div>
+          </div>
+
+          <div class="hud-meter-group">
+            <div class="meter-labels">
+              <span>CARGA DE CPU</span>
+              <span class="mono" id="hud-cpu-text">18.4% (0.42 load)</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" id="hud-cpu-bar" style="width: 20%;"></div>
+            </div>
+          </div>
+
+          <!-- Action: Expand Full Glass Monitor -->
+          <div class="hud-footer">
+            <button class="hud-action-btn" id="hud-btn-expand-monitor">
+              <span>TELEMETRIA COMPLETA</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="btn-arrow">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </aside>
+
+        <!-- CENTER HERO STAGE (The 3 Enriched Hero Sessions) -->
+        <section id="heroes-container">
+          
+          <!-- Mobile Server Quick Status Chip (Exclusivo telas <= 768px) -->
+          <div class="mobile-hud-summary-card glass-panel" id="mobile-hud-chip">
+            <div class="m-chip-left">
+              <span class="tele-dot green-pulse"></span>
+              <span class="mono" id="m-chip-docker">CLUSTER: 2 ATIVOS</span>
+              <span style="opacity:0.3;">·</span>
+              <span class="mono" id="m-chip-ram">RAM: -- GB</span>
+            </div>
+            <button class="m-chip-btn mono" id="m-chip-view-server" type="button">VER SERVIDOR ➔</button>
+          </div>
+
+          <div class="hero-stage-intro">
+            <span class="stage-overline">CORE ARCHITECTURE & SYSTEMS</span>
+            <h1 class="stage-headline">SERVIÇOS EM PRODUÇÃO & WORKFLOWS</h1>
+            <p class="stage-subtitle">Aplicações Web Full-Stack, Microsserviços Conteinerizados, Clusters de Bancos de Dados, Pipelines de Automação e Módulos de Segurança operando em ambiente de demonstração de alta performance.</p>
+          </div>
+
+          <!-- The Core Hero Cards Grid (4 Core Systems) -->
+          <div class="heroes-grid">
+
+            <!-- ============================================================= -->
+            <!-- HERO 1: DESKCOMM CRM & WAHA ENGINE                            -->
+            <!-- ============================================================= -->
+            <article class="hero-card" id="hero-deskcomm" data-hero="deskcomm">
+              <!-- Card Header -->
+              <div class="hero-card-header">
+                <div class="hero-title-group">
+                  <div class="hero-icon-container clickable-hero-icon" data-hero="deskcomm" role="button" tabindex="0" title="Ver detalhes do Serviço Web">
+                    <svg class="hero-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span class="external-launcher-badge" title="Explorar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </span>
+                  </div>
+                  <div>
+                    <h2 class="hero-title clickable-hero-title" data-hero="deskcomm" title="Clique para detalhes">Seu Serviço Web Aqui</h2>
+                    <span class="hero-sub">Full-Stack Web App · Front-End & Micro-Frontends</span>
+                  </div>
+                </div>
+
+                <div class="hero-header-actions">
+                  <div class="hero-status-pill">
+                    <span class="tele-dot green-pulse"></span>
+                    <span class="status-txt" id="deskcomm-status-badge">ONLINE · 14ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini-Browser Glass Viewport (Simulação Interativa de Alta Fidelidade) -->
+              <div class="hero-preview-window">
+                <div class="window-bar">
+                  <div class="window-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="window-url-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="lock-icon">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span class="url-text mono" id="deskcomm-url-display">https://seu-servico-web.internal:3000</span>
+                  </div>
+                  <div class="window-controls">
+                    <button class="win-btn win-demo-action" data-target="web" title="Simular Recarga">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                    </button>
+                    <button class="win-btn win-demo-info" data-target="web" title="Especificações da Arquitetura">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="window-viewport-wrap">
+                  <div class="simulated-viewport">
+                    <div class="sim-vp-top">
+                      <div class="sim-vp-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" style="width:14px;height:14px;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        <span>Painel Web Operacional</span>
+                      </div>
+                      <span class="sim-vp-tag mono">PRODUÇÃO 100%</span>
+                    </div>
+                    <div class="sim-vp-grid">
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">TRÁFEGO / SEG</span>
+                        <span class="sim-stat-val mono" id="sim-web-qps">2,480 req/s</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">LATÊNCIA P95</span>
+                        <span class="sim-stat-val mono" id="sim-web-lat">12.4 ms</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">UPTIME</span>
+                        <span class="sim-stat-val mono" style="color:#34d399;">99.99%</span>
+                      </div>
+                    </div>
+                    <div class="sim-vp-wave">
+                      <svg viewBox="0 0 300 40" preserveAspectRatio="none" style="width:100%;height:100%;">
+                        <path d="M0,25 Q40,5 80,20 T160,18 T240,8 T300,16 L300,40 L0,40 Z" fill="rgba(56, 189, 248, 0.15)"></path>
+                        <path d="M0,25 Q40,5 80,20 T160,18 T240,8 T300,16" fill="none" stroke="#38bdf8" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div class="sim-vp-bottom mono">
+                      <span>HTTP/2 · SSL TLS 1.3 ATIVO</span>
+                      <span>RESPOSTA: 200 OK</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Specs -->
+              <div class="hero-tech-specs">
+                <div class="spec-pills-row">
+                  <span class="spec-pill mono">Next.js 15</span>
+                  <span class="spec-pill mono">TypeScript</span>
+                  <span class="spec-pill mono">Tailwind CSS</span>
+                  <span class="spec-pill mono">Port 3000 // Edge</span>
+                </div>
+                <p class="hero-description">
+                  Instância de produção dedicada à sua plataforma web ou SaaS full-stack. Arquitetura serverless/edge com renderização híbrida, gerenciamento de estado resiliente e telemetria de performance em tempo real.
+                </p>
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="hero-footer">
+                <div class="hero-actions-row">
+                  <button class="hero-btn-primary win-demo-action" data-target="web">
+                    <span>EXPLORAR SERVIÇO</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                  <button class="hero-btn-secondary win-demo-info" data-target="web" title="Ver Arquitetura Técnica">
+                    <span>ESPECIFICAÇÕES</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ============================================================= -->
+            <!-- ============================================================= -->
+            <!-- HERO 2: CLIENT HUNTER (SUÍTE UNIFICADA PROSPECÇÃO & OUTREACH) -->
+            <!-- ============================================================= -->
+            <article class="hero-card" id="hero-clienthunter" data-hero="clienthunter">
+              <!-- Card Header -->
+              <div class="hero-card-header">
+                <div class="hero-title-group">
+                  <div class="hero-icon-container clickable-hero-icon" data-hero="clienthunter" role="button" tabindex="0" title="Ver detalhes do Contêiner Docker">
+                    <svg class="hero-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    <span class="external-launcher-badge" title="Explorar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </span>
+                  </div>
+                  <div>
+                    <h2 class="hero-title clickable-hero-title" data-hero="clienthunter" title="Clique para detalhes">Seu Contêiner Docker Aqui</h2>
+                    <span class="hero-sub">Microserviço Backend & Filas Assíncronas de Alta Vazão</span>
+                  </div>
+                </div>
+
+                <div class="hero-header-actions">
+                  <div class="hero-status-pill">
+                    <span class="tele-dot green-pulse"></span>
+                    <span class="status-txt" id="clienthunter-status-badge">ONLINE · 9ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini-Browser Glass Viewport (Simulação Interativa de Alta Fidelidade) -->
+              <div class="hero-preview-window">
+                <div class="window-bar">
+                  <div class="window-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="window-url-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="lock-icon">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span class="url-text mono" id="clienthunter-url-display">https://seu-conteiner-docker.internal:8080</span>
+                  </div>
+                  <div class="window-controls">
+                    <button class="win-btn win-demo-action" data-target="docker" title="Simular Recarga">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                    </button>
+                    <button class="win-btn win-demo-info" data-target="docker" title="Especificações da Arquitetura">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="window-viewport-wrap">
+                  <div class="simulated-viewport">
+                    <div class="sim-vp-top">
+                      <div class="sim-vp-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" style="width:14px;height:14px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        <span>Worker Cluster & Microserviço</span>
+                      </div>
+                      <span class="sim-vp-tag mono" style="background:rgba(99,102,241,0.15);color:#a5b4fc;border-color:rgba(99,102,241,0.3);">CGROUPS ISOLADOS</span>
+                    </div>
+                    <div class="sim-vp-grid">
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">WORKERS ATIVOS</span>
+                        <span class="sim-stat-val mono" id="sim-docker-workers">8 / 8 THREADS</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">FILA REDIS</span>
+                        <span class="sim-stat-val mono" id="sim-docker-queue">0 PENDENTES</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">USO DE MEMÓRIA</span>
+                        <span class="sim-stat-val mono" style="color:#a5b4fc;">145 MB</span>
+                      </div>
+                    </div>
+                    <div class="sim-vp-wave">
+                      <svg viewBox="0 0 300 40" preserveAspectRatio="none" style="width:100%;height:100%;">
+                        <path d="M0,18 Q50,30 100,12 T200,24 T300,10 L300,40 L0,40 Z" fill="rgba(129, 140, 248, 0.15)"></path>
+                        <path d="M0,18 Q50,30 100,12 T200,24 T300,10" fill="none" stroke="#818cf8" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div class="sim-vp-bottom mono">
+                      <span>DOCKER ALPINE · RESTART: ALWAYS</span>
+                      <span>STATUS: HEALTHY</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Specs -->
+              <div class="hero-tech-specs">
+                <div class="spec-pills-row">
+                  <span class="spec-pill mono">Docker Alpine</span>
+                  <span class="spec-pill mono">FastAPI / Go</span>
+                  <span class="spec-pill mono">Redis Workers</span>
+                  <span class="spec-pill mono">Port 8080 // IPC</span>
+                </div>
+                <p class="hero-description">
+                  Contêiner isolado no cluster com alocação eficiente de recursos (cgroups Linux), balanceamento de carga, processamento assíncrono de eventos e filas de execução com tolerância a falhas.
+                </p>
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="hero-footer">
+                <div class="hero-actions-row">
+                  <button class="hero-btn-primary win-demo-action" data-target="docker">
+                    <span>VER CONTÊINER</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                  <button class="hero-btn-secondary win-demo-logs" data-container="seu-conteiner-docker" title="Inspecionar Logs do Contêiner">
+                    <span>LOGS AO VIVO</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ============================================================= -->
+            <!-- HERO 3: OMNIROUTE AI GATEWAY SUPREME                          -->
+            <!-- ============================================================= -->
+            <article class="hero-card" id="hero-omniroute" data-hero="omniroute">
+              <!-- Card Header -->
+              <div class="hero-card-header">
+                <div class="hero-title-group">
+                  <div class="hero-icon-container clickable-hero-icon" data-hero="omniroute" role="button" tabindex="0" title="Ver detalhes do Banco de Dados">
+                    <svg class="hero-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                    <span class="external-launcher-badge" title="Explorar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </span>
+                  </div>
+                  <div>
+                    <h2 class="hero-title clickable-hero-title" data-hero="omniroute" title="Clique para detalhes">Seu Banco de Dados Aqui</h2>
+                    <span class="hero-sub">Cluster Relacional & Cache In-Memory de Ultra-Baixa Latência</span>
+                  </div>
+                </div>
+
+                <div class="hero-header-actions">
+                  <div class="hero-status-pill">
+                    <span class="tele-dot green-pulse"></span>
+                    <span class="status-txt" id="omniroute-status-badge">ONLINE · 2ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini-Browser Glass Viewport (Simulação Interativa de Alta Fidelidade) -->
+              <div class="hero-preview-window">
+                <div class="window-bar">
+                  <div class="window-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="window-url-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="lock-icon">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span class="url-text mono" id="omniroute-url-display">https://seu-banco-dados.internal:5432</span>
+                  </div>
+                  <div class="window-controls">
+                    <button class="win-btn win-demo-action" data-target="database" title="Simular Recarga">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                    </button>
+                    <button class="win-btn win-demo-info" data-target="database" title="Especificações da Arquitetura">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="window-viewport-wrap">
+                  <div class="simulated-viewport">
+                    <div class="sim-vp-top">
+                      <div class="sim-vp-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="width:14px;height:14px;"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        <span>Cluster PostgreSQL 16 & Redis</span>
+                      </div>
+                      <span class="sim-vp-tag mono" style="background:rgba(16,185,129,0.15);color:#34d399;border-color:rgba(16,185,129,0.3);">ACID TRANSACTIONS</span>
+                    </div>
+                    <div class="sim-vp-grid">
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">QUERIES / SEG</span>
+                        <span class="sim-stat-val mono" id="sim-db-qps">5,120 QPS</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">CACHE HIT RATIO</span>
+                        <span class="sim-stat-val mono" style="color:#34d399;">99.8%</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">POOL CONEXÕES</span>
+                        <span class="sim-stat-val mono">48 / 100</span>
+                      </div>
+                    </div>
+                    <div class="sim-vp-wave">
+                      <svg viewBox="0 0 300 40" preserveAspectRatio="none" style="width:100%;height:100%;">
+                        <path d="M0,28 Q60,10 120,24 T240,14 T300,20 L300,40 L0,40 Z" fill="rgba(52, 211, 153, 0.15)"></path>
+                        <path d="M0,28 Q60,10 120,24 T240,14 T300,20" fill="none" stroke="#34d399" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div class="sim-vp-bottom mono">
+                      <span>WAL REPLICATION · POINT-IN-TIME RECOVERY</span>
+                      <span>LATÊNCIA: 0.8ms</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Specs -->
+              <div class="hero-tech-specs">
+                <div class="spec-pills-row">
+                  <span class="spec-pill mono">PostgreSQL 16</span>
+                  <span class="spec-pill mono">Redis 7</span>
+                  <span class="spec-pill mono">WAL Replicas</span>
+                  <span class="spec-pill mono">Port 5432 // 6379</span>
+                </div>
+                <p class="hero-description">
+                  Camada de persistência relacional com conformidade estrita a ACID, pool de conexões otimizado, cache distribuído em memória e snapshots contínuos de integridade e redundância.
+                </p>
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="hero-footer">
+                <div class="hero-actions-row">
+                  <button class="hero-btn-primary win-demo-action" data-target="database">
+                    <span>MÉTRICAS DO BANCO</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                  <button class="hero-btn-secondary win-demo-info" data-target="database" title="Arquitetura de Dados">
+                    <span>CACHE STATUS</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ============================================================= -->
+            <!-- HERO 4: N8N WORKFLOW AUTOMATION & AI ORCHESTRATION            -->
+            <!-- ============================================================= -->
+            <article class="hero-card" id="hero-n8n" data-hero="n8n">
+              <!-- Card Header -->
+              <div class="hero-card-header">
+                <div class="hero-title-group">
+                  <div class="hero-icon-container clickable-hero-icon" data-hero="n8n" role="button" tabindex="0" title="Ver detalhes da Automação">
+                    <svg class="hero-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <circle cx="6" cy="18" r="3"></circle>
+                      <circle cx="6" cy="6" r="3"></circle>
+                      <circle cx="18" cy="12" r="3"></circle>
+                      <line x1="8.59" y1="7.41" x2="15.42" y2="10.59"></line>
+                      <line x1="8.59" y1="16.59" x2="15.42" y2="13.41"></line>
+                    </svg>
+                    <span class="external-launcher-badge" title="Explorar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </span>
+                  </div>
+                  <div>
+                    <h2 class="hero-title clickable-hero-title" data-hero="n8n" title="Clique para detalhes">Sua Automação de Workflows Aqui</h2>
+                    <span class="hero-sub">Orquestração de Agentes IA, Pipelines & Webhooks</span>
+                  </div>
+                </div>
+
+                <div class="hero-header-actions">
+                  <div class="hero-status-pill">
+                    <span class="tele-dot green-pulse"></span>
+                    <span class="status-txt" id="n8n-status-badge">ONLINE · 18ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini-Browser Glass Viewport (Simulação Interativa de Alta Fidelidade) -->
+              <div class="hero-preview-window">
+                <div class="window-bar">
+                  <div class="window-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="window-url-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="lock-icon">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span class="url-text mono" id="n8n-url-display">https://sua-automacao.internal:5678</span>
+                  </div>
+                  <div class="window-controls">
+                    <button class="win-btn win-demo-action" data-target="automation" title="Simular Recarga">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                    </button>
+                    <button class="win-btn win-demo-info" data-target="automation" title="Especificações da Arquitetura">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="window-viewport-wrap">
+                  <div class="simulated-viewport">
+                    <div class="sim-vp-top">
+                      <div class="sim-vp-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="width:14px;height:14px;"><circle cx="6" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="12" r="3"></circle><line x1="8.59" y1="7.41" x2="15.42" y2="10.59"></line></svg>
+                        <span>Pipeline de Eventos & Agentes IA</span>
+                      </div>
+                      <span class="sim-vp-tag mono" style="background:rgba(245,158,11,0.15);color:#fbbf24;border-color:rgba(245,158,11,0.3);">EVENT DRIVEN</span>
+                    </div>
+                    <div class="sim-vp-grid">
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">WORKFLOWS ATIVOS</span>
+                        <span class="sim-stat-val mono" id="sim-auto-count">18 PIPELINES</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">EXECUÇÕES HOJE</span>
+                        <span class="sim-stat-val mono" id="sim-auto-exec">14,892</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">TAXA DE SUCESSO</span>
+                        <span class="sim-stat-val mono" style="color:#34d399;">99.94%</span>
+                      </div>
+                    </div>
+                    <div class="sim-vp-wave">
+                      <svg viewBox="0 0 300 40" preserveAspectRatio="none" style="width:100%;height:100%;">
+                        <path d="M0,20 Q40,32 90,14 T180,26 T270,12 L300,18 L300,40 L0,40 Z" fill="rgba(245, 158, 11, 0.15)"></path>
+                        <path d="M0,20 Q40,32 90,14 T180,26 T270,12 L300,18" fill="none" stroke="#f59e0b" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div class="sim-vp-bottom mono">
+                      <span>NÓS CONECTADOS: 42 ATIVOS</span>
+                      <span>TRIGGERS: WEBHOOKS & CRON</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Specs -->
+              <div class="hero-tech-specs">
+                <div class="spec-pills-row">
+                  <span class="spec-pill mono">Workflow Engine</span>
+                  <span class="spec-pill mono">AI Multi-Agent</span>
+                  <span class="spec-pill mono">Webhook Gateway</span>
+                  <span class="spec-pill mono">Port 5678 // Queues</span>
+                </div>
+                <p class="hero-description">
+                  Central de inteligência automatizada para conexão de pipelines, automação de tarefas corporativas, integração de APIs e disparos de agentes inteligentes em tempo real.
+                </p>
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="hero-footer">
+                <div class="hero-actions-row">
+                  <button class="hero-btn-primary win-demo-action" data-target="automation">
+                    <span>ABRIR WORKFLOWS</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                  <button class="hero-btn-secondary win-demo-info" data-target="automation" title="Detalhes dos Agentes">
+                    <span>NÓS CONECTADOS</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ============================================================= -->
+            <!-- HERO 5: VPS MANAGER — SECURITY SQUADRON & SENTINEL             -->
+            <!-- ============================================================= -->
+            <article class="hero-card" id="hero-vpsmanager" data-hero="vpsmanager">
+              <!-- Card Header -->
+              <div class="hero-card-header">
+                <div class="hero-title-group">
+                  <div class="hero-icon-container clickable-hero-icon" data-hero="vpsmanager" role="button" tabindex="0" title="Ver detalhes da Segurança">
+                    <svg class="hero-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <polyline points="9 12 11 14 15 10"></polyline>
+                    </svg>
+                    <span class="external-launcher-badge" title="Explorar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </span>
+                  </div>
+                  <div>
+                    <h2 class="hero-title clickable-hero-title" data-hero="vpsmanager" title="Clique para detalhes">Seu Módulo de Segurança Aqui</h2>
+                    <span class="hero-sub">Sentinel Shield · Firewall Ativo & Monitoramento Zero-Trust</span>
+                  </div>
+                </div>
+
+                <div class="hero-header-actions">
+                  <div class="hero-status-pill">
+                    <span class="tele-dot green-pulse"></span>
+                    <span class="status-txt" id="vpsmanager-status-badge">ONLINE · 4ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini-Browser Glass Viewport (Simulação Interativa de Alta Fidelidade) -->
+              <div class="hero-preview-window">
+                <div class="window-bar">
+                  <div class="window-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="window-url-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="lock-icon">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span class="url-text mono" id="vpsmanager-url-display">https://seu-sentinel.internal:5050</span>
+                  </div>
+                  <div class="window-controls">
+                    <button class="win-btn win-demo-action" data-target="security" title="Simular Recarga">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                    </button>
+                    <button class="win-btn win-demo-info" data-target="security" title="Especificações da Arquitetura">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="window-viewport-wrap">
+                  <div class="simulated-viewport">
+                    <div class="sim-vp-top">
+                      <div class="sim-vp-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" style="width:14px;height:14px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span>Sentinel Guardian & WAF Ativo</span>
+                      </div>
+                      <span class="sim-vp-tag mono" style="background:rgba(236,72,153,0.15);color:#f472b6;border-color:rgba(236,72,153,0.3);">ZERO-TRUST SHIELD</span>
+                    </div>
+                    <div class="sim-vp-grid">
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">AMEAÇAS BLOQUEADAS</span>
+                        <span class="sim-stat-val mono" id="sim-sec-threats">142 HOJE</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">INSPEÇÃO PACOTES</span>
+                        <span class="sim-stat-val mono" style="color:#34d399;">0.12 ms</span>
+                      </div>
+                      <div class="sim-stat-box">
+                        <span class="sim-stat-label mono">INTEGRIDADE KERNEL</span>
+                        <span class="sim-stat-val mono" style="color:#38bdf8;">100% OK</span>
+                      </div>
+                    </div>
+                    <div class="sim-vp-wave">
+                      <svg viewBox="0 0 300 40" preserveAspectRatio="none" style="width:100%;height:100%;">
+                        <path d="M0,15 Q75,30 150,10 T300,18 L300,40 L0,40 Z" fill="rgba(236, 72, 153, 0.15)"></path>
+                        <path d="M0,15 Q75,30 150,10 T300,18" fill="none" stroke="#ec4899" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div class="sim-vp-bottom mono">
+                      <span>TLS 1.3 CERTIFICATE · ACTIVE FIREWALL</span>
+                      <span>STATUS: BLINDADO</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Specs -->
+              <div class="hero-tech-specs">
+                <div class="spec-pills-row">
+                  <span class="spec-pill mono">Sentinel Shield</span>
+                  <span class="spec-pill mono">TLS 1.3</span>
+                  <span class="spec-pill mono">Zero-Trust WAF</span>
+                  <span class="spec-pill mono">Port 5050 // eBPF</span>
+                </div>
+                <p class="hero-description">
+                  Defesa perimetral avançada em tempo real com mitigação de anomalias, filtragem inteligente de requisições, auditoria contínua de integridade do host e compliance perimetral.
+                </p>
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="hero-footer">
+                <div class="hero-actions-row">
+                  <button class="hero-btn-primary win-demo-action" data-target="security">
+                    <span>PAINEL DE SEGURANÇA</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                  <button class="hero-btn-secondary win-demo-info" data-target="security" title="Status do Firewall">
+                    <span>STATUS DEFENSIVO</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- VIEW 2: COMPLETE PANEL, FULL GLASS ELEGANTE WEB PANEL MONITORING -->
+      <!-- ================================================================= -->
+      <div id="monitoring-view" class="view-container">
+        
+        <section class="monitoring-dashboard-wrapper">
+          
+          <!-- Master Monitoring Header -->
+          <div class="mon-header-panel glass-panel">
+            <div class="mon-header-left">
+              <div class="mon-title-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mon-pulse-icon">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+                <span>TELEMETRIA AVANÇADA DO SERVIDOR</span>
+              </div>
+              <h2 class="mon-headline">PAINEL DE MONITORAMENTO FULL GLASS</h2>
+              <div class="mon-host-meta mono">
+                <span id="mon-host-name">srv-edge-alpha01.demo-cloud.internal</span>
+                <span class="sep">·</span>
+                <span id="mon-os-name">Ubuntu Linux 24.04 LTS (x86_64 Cloud Enterprise)</span>
+                <span class="sep">·</span>
+                <span class="tele-dot green-pulse"></span>
+                <span id="mon-glances-badge">TELEMETRIA AO VIVO · CLUSTER DEMO SIMULATOR</span>
+              </div>
+            </div>
+
+            <div class="mon-header-right">
+              <!-- Refresh Interval Controls -->
+              <div class="mon-controls-row">
+                <span class="ctrl-label mono">INTERVALO:</span>
+                <div class="rate-buttons">
+                  <button class="rate-btn" data-rate="1000">1s</button>
+                  <button class="rate-btn active" data-rate="2000">2s</button>
+                  <button class="rate-btn" data-rate="5000">5s</button>
+                </div>
+                <button id="mon-btn-refresh-now" class="glass-button-sm" title="Atualizar Imediatamente">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                    <path d="M23 4v6h-6M1 20v-6h6"></path>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                  </svg>
+                  <span>ATUALIZAR</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Apple Liquid Glass Segmented Sub-Navigation -->
+          <nav class="mon-subnav-bar glass-panel" aria-label="Navegação do Monitor">
+            <button class="mon-subnav-btn active" data-subnav="cockpit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+              <span>COCKPIT GERAL</span>
+            </button>
+            <button class="mon-subnav-btn" data-subnav="cpu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+              <span>CPU & KERNEL</span>
+            </button>
+            <button class="mon-subnav-btn" data-subnav="memory">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3M6 8V5M10 8V5M14 8V5M18 8V5"></path><rect x="2" y="8" width="20" height="8" rx="2"></rect></svg>
+              <span>MEMÓRIA & NVME</span>
+            </button>
+            <button class="mon-subnav-btn" data-subnav="docker">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+              <span>DOCKER & SERVIÇOS</span>
+            </button>
+            <button class="mon-subnav-btn" data-subnav="network">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <span>REDE & PORTAS</span>
+            </button>
+            <button class="mon-subnav-btn" data-subnav="processes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+              <span>PROCESSOS</span>
+            </button>
+            <button class="mon-subnav-btn mon-subnav-all" data-subnav="all">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="subnav-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>MODO EXPANDIDO</span>
+            </button>
+          </nav>
+
+          <!-- ============================================================= -->
+          <!-- SUBVIEW 1: COCKPIT GERAL (EXEC HUD & SPARKLINES)              -->
+          <!-- ============================================================= -->
+          <div class="mon-subview active" id="subview-cockpit">
+
+            <!-- Master KPI Telemetry Grid with SVG Sparklines -->
+            <div class="mon-kpi-grid">
+
+              <!-- KPI 1: CPU MULTICORE & LOAD -->
+              <div class="kpi-card glass-panel" id="mon-kpi-cpu">
+                <div class="kpi-top">
+                  <div class="kpi-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="kpi-icon">
+                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                      <rect x="9" y="9" width="6" height="6"></rect>
+                      <line x1="9" y1="1" x2="9" y2="4"></line>
+                      <line x1="15" y1="1" x2="15" y2="4"></line>
+                      <line x1="9" y1="20" x2="9" y2="23"></line>
+                      <line x1="15" y1="20" x2="15" y2="23"></line>
+                      <line x1="20" y1="9" x2="23" y2="9"></line>
+                      <line x1="20" y1="14" x2="23" y2="14"></line>
+                      <line x1="1" y1="9" x2="4" y2="9"></line>
+                      <line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                    <span class="kpi-title">PROCESSADOR (4 VCPUS · AMD EPYC 7763)</span>
+                  </div>
+                  <span class="kpi-main-val mono" id="mon-cpu-total">--%</span>
+                </div>
+
+                <!-- Sparkline SVG Live -->
+                <div class="kpi-sparkline-wrap">
+                  <svg class="kpi-sparkline" id="mon-sparkline-cpu" viewBox="0 0 160 36" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="spark-grad-cpu" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="spark-area" d="" fill="url(#spark-grad-cpu)" />
+                    <path class="spark-line" d="" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+
+                <div class="kpi-submeters">
+                  <!-- Core 0 -->
+                  <div class="core-meter-row">
+                    <div class="meter-info mono">
+                      <span>CORE 0:</span>
+                      <span id="mon-core-0-val">--%</span>
+                    </div>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="mon-core-0-bar" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                  <!-- Core 1 -->
+                  <div class="core-meter-row">
+                    <div class="meter-info mono">
+                      <span>CORE 1:</span>
+                      <span id="mon-core-1-val">--%</span>
+                    </div>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="mon-core-1-bar" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kpi-details-grid mono">
+                  <div class="detail-item">
+                    <span class="d-label">USER</span>
+                    <span class="d-val" id="mon-cpu-user">--%</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">SYSTEM</span>
+                    <span class="d-val" id="mon-cpu-sys">--%</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">IOWAIT</span>
+                    <span class="d-val" id="mon-cpu-iowait">--%</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">LOAD AVG</span>
+                    <span class="d-val" id="mon-cpu-load">-- · -- · --</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KPI 2: MEMÓRIA RAM & SWAP -->
+              <div class="kpi-card glass-panel" id="mon-kpi-mem">
+                <div class="kpi-top">
+                  <div class="kpi-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="kpi-icon">
+                      <path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3M6 8V5M10 8V5M14 8V5M18 8V5"></path>
+                      <rect x="2" y="8" width="20" height="8" rx="2"></rect>
+                    </svg>
+                    <span class="kpi-title">MEMÓRIA RAM UNIFICADA</span>
+                  </div>
+                  <span class="kpi-main-val mono" id="mon-mem-percent">--%</span>
+                </div>
+
+                <!-- Sparkline SVG Live -->
+                <div class="kpi-sparkline-wrap">
+                  <svg class="kpi-sparkline" id="mon-sparkline-mem" viewBox="0 0 160 36" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="spark-grad-mem" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#a855f7" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="spark-area" d="" fill="url(#spark-grad-mem)" />
+                    <path class="spark-line" d="" fill="none" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+
+                <div class="segmented-bar-container">
+                  <div class="meter-track multi-segment">
+                    <div class="segment used-seg" id="mon-mem-bar-used" style="width: 18%;" title="Memória Ativa / Usada"></div>
+                    <div class="segment cached-seg" id="mon-mem-bar-cached" style="width: 40%;" title="Buffers & Cache do Kernel"></div>
+                  </div>
+                </div>
+
+                <div class="kpi-details-grid mono">
+                  <div class="detail-item">
+                    <span class="d-label">USADA</span>
+                    <span class="d-val" id="mon-mem-used">-- GB</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">CACHED</span>
+                    <span class="d-val" id="mon-mem-cached">-- GB</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">LIVRE</span>
+                    <span class="d-val" id="mon-mem-free">-- GB</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">TOTAL</span>
+                    <span class="d-val">12.0 GB</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KPI 3: DISCO NVME & TAXAS DE I/O -->
+              <div class="kpi-card glass-panel" id="mon-kpi-disk">
+                <div class="kpi-top">
+                  <div class="kpi-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="kpi-icon">
+                      <line x1="22" y1="12" x2="2" y2="12"></line>
+                      <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                      <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                      <line x1="10" y1="16" x2="10.01" y2="16"></line>
+                    </svg>
+                    <span class="kpi-title">ARMAZENAMENTO NVME (/)</span>
+                  </div>
+                  <span class="kpi-main-val mono" id="mon-disk-percent">--%</span>
+                </div>
+
+                <!-- Sparkline SVG Live -->
+                <div class="kpi-sparkline-wrap">
+                  <svg class="kpi-sparkline" id="mon-sparkline-disk" viewBox="0 0 160 36" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="spark-grad-disk" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="spark-area" d="" fill="url(#spark-grad-disk)" />
+                    <path class="spark-line" d="" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+
+                <div class="kpi-submeters">
+                  <div class="core-meter-row">
+                    <div class="meter-info mono">
+                      <span>USO DA PARTIÇÃO RAIZ:</span>
+                      <span id="mon-disk-used-total">-- / 193 GB</span>
+                    </div>
+                    <div class="meter-track">
+                      <div class="meter-fill" id="mon-disk-bar" style="width: 11%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kpi-details-grid mono">
+                  <div class="detail-item">
+                    <span class="d-label">LEITURA I/O</span>
+                    <span class="d-val" id="mon-disk-read">-- KB/s</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">ESCRITA I/O</span>
+                    <span class="d-val" id="mon-disk-write">-- KB/s</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">LIVRE</span>
+                    <span class="d-val" id="mon-disk-free">-- GB</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">SISTEMA</span>
+                    <span class="d-val">ext4</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KPI 4: REDE & TRÁFEGO EM TEMPO REAL -->
+              <div class="kpi-card glass-panel" id="mon-kpi-net">
+                <div class="kpi-top">
+                  <div class="kpi-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="kpi-icon">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span class="kpi-title">REDE PRIMÁRIA (enp0s6)</span>
+                  </div>
+                  <span class="kpi-main-val mono" id="mon-net-rates">-- KB/s</span>
+                </div>
+
+                <!-- Sparkline SVG Live -->
+                <div class="kpi-sparkline-wrap">
+                  <svg class="kpi-sparkline" id="mon-sparkline-net" viewBox="0 0 160 36" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="spark-grad-net" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="spark-area" d="" fill="url(#spark-grad-net)" />
+                    <path class="spark-line" d="" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+
+                <div class="kpi-submeters">
+                  <div class="net-flow-row mono">
+                    <div class="net-flow-item">
+                      <span>RX (DOWNLOAD):</span>
+                      <span id="mon-net-rx">-- KB/s</span>
+                    </div>
+                    <div class="net-flow-item">
+                      <span>TX (UPLOAD):</span>
+                      <span id="mon-net-tx">-- KB/s</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kpi-details-grid mono">
+                  <div class="detail-item">
+                    <span class="d-label">TOTAL RX</span>
+                    <span class="d-val" id="mon-net-tot-rx">-- MB</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">TOTAL TX</span>
+                    <span class="d-val" id="mon-net-tot-tx">-- MB</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">INTERFACE</span>
+                    <span class="d-val">enp0s6</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="d-label">ESTADO</span>
+                    <span class="d-val" style="color: var(--status-emerald);">UP / FULL</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Health Shield & Core Systemd Services Row -->
+            <div class="mon-cockpit-infra-row">
+              
+              <!-- VPS Health & Architecture Card -->
+              <div class="glass-panel mon-infra-shield">
+                <div class="infra-shield-top">
+                  <div class="shield-badge mono">
+                    <span class="tele-dot green-pulse"></span>
+                    <span>SAÚDE OPERACIONAL EXCELENTE</span>
+                  </div>
+                  <span class="infra-uptime-chip mono" id="mon-vps-uptime-chip">UPTIME: 1d 18h</span>
+                </div>
+                <div class="infra-hardware-info">
+                  <h4 class="infra-cpu-name" id="mon-cpu-model-name">ARM Neoverse-N1 (Ampere Altra)</h4>
+                  <div class="infra-tags-row mono">
+                    <span class="infra-tag">2 vCPUs ARM64</span>
+                    <span class="infra-tag">12.0 GB RAM</span>
+                    <span class="infra-tag">193 GB NVMe ext4</span>
+                    <span class="infra-tag">Kernel 6.8 Oracle</span>
+                    <span class="infra-tag tag-secure">SSH Encapsulado</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Core Systemd Services Strip -->
+              <div class="glass-panel mon-services-panel">
+                <div class="services-panel-header">
+                  <span class="mono sec-title-sm">SERVIÇOS ESSENCIAIS SYSTEMD</span>
+                  <span class="mono sec-badge-sm" id="mon-services-count">5 / 5 ATIVOS</span>
+                </div>
+                <div class="services-chips-grid" id="mon-services-grid">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Cockpit Quick Previews (Mini Docker + Mini Processes) -->
+            <div class="mon-cockpit-split-row">
+              <!-- Mini Docker Highlight -->
+              <div class="glass-panel mon-mini-section">
+                <div class="mini-sec-header">
+                  <span class="mono sec-title-sm">CONTÊINERES EM EXECUÇÃO</span>
+                  <button class="glass-link-btn mono" data-nav-to="docker">VER CLUSTER COMPLETO →</button>
+                </div>
+                <div class="mini-docker-list" id="mon-mini-docker-list">
+                  <!-- Injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Mini Process Highlight -->
+              <div class="glass-panel mon-mini-section">
+                <div class="mini-sec-header">
+                  <span class="mono sec-title-sm">TOP PROCESSOS (CPU / RAM)</span>
+                  <button class="glass-link-btn mono" data-nav-to="processes">EXPLORAR PROCESSOS →</button>
+                </div>
+                <div class="mini-proc-list" id="mon-mini-proc-list">
+                  <!-- Injected dynamically -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ============================================================= -->
+          <!-- SUBVIEW 2: CPU & KERNEL TELEMETRY DEEP-DIVE                   -->
+          <!-- ============================================================= -->
+          <div class="mon-subview" id="subview-cpu">
+            <div class="mon-detail-grid-2col">
+              
+              <!-- CPU Multicore & Frequency Details -->
+              <div class="glass-panel mon-card-detailed">
+                <div class="card-det-header">
+                  <div class="sec-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
+                    <h3>NÚCLEOS DE PROCESSAMENTO ARM64</h3>
+                  </div>
+                  <span class="mono sec-badge" id="mon-cpu-core-count">2 NÚCLEOS DISPONÍVEIS</span>
+                </div>
+
+                <div class="cpu-cores-cards-grid" id="mon-cpu-cores-container">
+                  <!-- Core 0 and Core 1 detailed cards -->
+                </div>
+              </div>
+
+              <!-- CPU Cycles Decomposition & Kernel Scheduler -->
+              <div class="glass-panel mon-card-detailed">
+                <div class="card-det-header">
+                  <div class="sec-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <h3>DISTRIBUIÇÃO DE CICLOS & KERNEL</h3>
+                  </div>
+                  <span class="mono sec-badge">KERNEL 6.8 SCHEDULER</span>
+                </div>
+
+                <div class="cycles-breakdown-list mono">
+                  <div class="cycle-row">
+                    <span class="c-label">Espaço de Usuário (User):</span>
+                    <span class="c-val" id="det-cpu-user">--%</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Espaço de Sistema (System):</span>
+                    <span class="c-val" id="det-cpu-sys">--%</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Espera de Disco (IOWait):</span>
+                    <span class="c-val" id="det-cpu-io">--%</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Interrupções de Hardware (IRQ):</span>
+                    <span class="c-val" id="det-cpu-irq">0.0%</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Ciclos Roubados / Steal:</span>
+                    <span class="c-val" id="det-cpu-steal">0.0%</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Em Ociosidade (Idle):</span>
+                    <span class="c-val" id="det-cpu-idle">--%</span>
+                  </div>
+                </div>
+
+                <div class="kernel-stats-box mono">
+                  <div class="k-stat">
+                    <span class="k-stat-label">CONTEXT SWITCHES:</span>
+                    <span class="k-stat-val" id="det-kernel-ctxt">--</span>
+                  </div>
+                  <div class="k-stat">
+                    <span class="k-stat-label">HARDWARE INTERRUPTS:</span>
+                    <span class="k-stat-val" id="det-kernel-intr">--</span>
+                  </div>
+                  <div class="k-stat">
+                    <span class="k-stat-label">PROCESSOS ATIVOS / BLOQUEADOS:</span>
+                    <span class="k-stat-val" id="det-kernel-procs">-- / --</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================================================= -->
+          <!-- SUBVIEW 3: MEMÓRIA RAM & DISCOS NVME                          -->
+          <!-- ============================================================= -->
+          <div class="mon-subview" id="subview-memory">
+            <div class="mon-detail-grid-2col">
+              
+              <!-- Memory Breakdown -->
+              <div class="glass-panel mon-card-detailed">
+                <div class="card-det-header">
+                  <div class="sec-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon"><rect x="2" y="8" width="20" height="8" rx="2"></rect></svg>
+                    <h3>DECOMPOSIÇÃO DE MEMÓRIA RAM</h3>
+                  </div>
+                  <span class="mono sec-badge">12.0 GB TOTAL</span>
+                </div>
+
+                <div class="mem-segmented-visual-panel">
+                  <div class="meter-track multi-segment large-track">
+                    <div class="segment used-seg" id="det-mem-bar-used" style="width: 22%;"></div>
+                    <div class="segment cached-seg" id="det-mem-bar-cached" style="width: 58%;"></div>
+                  </div>
+                  <div class="mem-legend-row mono">
+                    <span class="legend-item"><span class="legend-dot dot-used"></span> Usada por Aplicações</span>
+                    <span class="legend-item"><span class="legend-dot dot-cached"></span> Kernel Cache & Buffers</span>
+                    <span class="legend-item"><span class="legend-dot dot-free"></span> Totalmente Livre</span>
+                  </div>
+                </div>
+
+                <div class="cycles-breakdown-list mono">
+                  <div class="cycle-row">
+                    <span class="c-label">Memória Ativa / Usada:</span>
+                    <span class="c-val" id="det-mem-used-val">-- GB</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Buffers do Kernel:</span>
+                    <span class="c-val" id="det-mem-buffers-val">-- GB</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Page Cache:</span>
+                    <span class="c-val" id="det-mem-cached-val">-- GB</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Memória Realmente Livre:</span>
+                    <span class="c-val" id="det-mem-free-val">-- GB</span>
+                  </div>
+                  <div class="cycle-row">
+                    <span class="c-label">Partição de Swap:</span>
+                    <span class="c-val" id="det-mem-swap-val">0.0 / 0.0 GB (0%)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Storage & Filesystem Mounts Table -->
+              <div class="glass-panel mon-card-detailed">
+                <div class="card-det-header">
+                  <div class="sec-title-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon"><line x1="22" y1="12" x2="2" y2="12"></line><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
+                    <h3>SISTEMAS DE ARQUIVOS & INODES</h3>
+                  </div>
+                  <span class="mono sec-badge">NVMe PARTIÇÕES</span>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="glass-table mono" id="mon-mounts-table">
+                    <thead>
+                      <tr>
+                        <th>PONTO</th>
+                        <th>DISPOSITIVO</th>
+                        <th>FS</th>
+                        <th>USADO / TOTAL</th>
+                        <th>LIVRE</th>
+                        <th>INODES</th>
+                      </tr>
+                    </thead>
+                    <tbody id="mon-mounts-tbody">
+                      <tr><td colspan="6" class="loading-row">Carregando partições do disco...</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="io-rates-box mono">
+                  <div class="k-stat">
+                    <span class="k-stat-label">LEITURA I/O DISCO:</span>
+                    <span class="k-stat-val" id="det-io-read">-- KB/s</span>
+                  </div>
+                  <div class="k-stat">
+                    <span class="k-stat-label">ESCRITA I/O DISCO:</span>
+                    <span class="k-stat-val" id="det-io-write">-- KB/s</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ============================================================= -->
+          <!-- SUBVIEW 4: CLUSTER DOCKER & SERVIÇOS                          -->
+          <!-- ============================================================= -->
+          <div class="mon-subview" id="subview-docker">
+            
+            <!-- Docker Cluster Full Overview -->
+            <div class="mon-section-panel glass-panel">
+              <div class="section-panel-header">
+                <div class="sec-title-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  </svg>
+                  <h3>CLUSTER DE CONTÊINERES DOCKER ENGINE v27</h3>
+                </div>
+                <span class="mono sec-badge" id="mon-docker-summary">Carregando contêineres...</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="glass-table mono" id="mon-docker-table">
+                  <thead>
+                    <tr>
+                      <th>CONTÊINER</th>
+                      <th>IMAGEM BASE</th>
+                      <th>STATUS & HEALTH</th>
+                      <th>CPU %</th>
+                      <th>MEMÓRIA RAM</th>
+                      <th>PORTAS MAPEADAS</th>
+                      <th>TAMANHO</th>
+                      <th>AÇÃO</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mon-docker-tbody">
+                    <tr>
+                      <td colspan="8" class="loading-row">Carregando telemetria dos contêineres...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Full Systemd Services Table -->
+            <div class="mon-section-panel glass-panel">
+              <div class="section-panel-header">
+                <div class="sec-title-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                  <h3>GERENCIADOR DE SERVIÇOS DO SISTEMA (SYSTEMD)</h3>
+                </div>
+                <span class="mono sec-badge">DAEMONS NATIVOS</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="glass-table mono" id="mon-systemd-table">
+                  <thead>
+                    <tr>
+                      <th>UNIDADE SYSTEMD</th>
+                      <th>NOME DA APLICAÇÃO</th>
+                      <th>DESCRIÇÃO / STACK</th>
+                      <th>PORTA INTERNA</th>
+                      <th>STATUS OPERACIONAL</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mon-systemd-tbody">
+                    <tr><td colspan="5" class="loading-row">Carregando status dos serviços systemd...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ============================================================= -->
+          <!-- SUBVIEW 5: REDE & PORTAS EM ESCUTA (SECURITY AUDIT)           -->
+          <!-- ============================================================= -->
+          <div class="mon-subview" id="subview-network">
+            
+            <!-- Network Bandwidth & Sockets Stats -->
+            <div class="mon-section-panel glass-panel">
+              <div class="section-panel-header">
+                <div class="sec-title-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <h3>MATRIZ DE PORTAS EM ESCUTA & SOCKETS DO SERVIDOR</h3>
+                </div>
+                <span class="mono sec-badge">AUDITORIA DE SEGURANÇA · ss -tuln</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="glass-table mono" id="mon-ports-table">
+                  <thead>
+                    <tr>
+                      <th>PORTA</th>
+                      <th>PROTOCOLO</th>
+                      <th>SERVIÇO MAPEADO</th>
+                      <th>PILHA / STACK</th>
+                      <th>INTERFACE DE BIND</th>
+                      <th>ESTADO</th>
+                      <th>ESCOPO DE SEGURANÇA</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mon-ports-tbody">
+                    <tr><td colspan="7" class="loading-row">Carregando portas em escuta...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ============================================================= -->
+          <!-- SUBVIEW 6: EXPLORADOR DE PROCESSOS                            -->
+          <!-- ============================================================= -->
+          <div class="mon-subview" id="subview-processes">
+            
+            <div class="mon-section-panel glass-panel">
+              <div class="section-panel-header">
+                <div class="sec-title-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="sec-icon">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <h3>EXPLORADOR DE PROCESSOS EM EXECUÇÃO</h3>
+                </div>
+                <div class="table-search-wrap">
+                  <input type="text" id="mon-process-filter" class="glass-input mono" placeholder="Filtrar por nome, PID ou usuário...">
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="glass-table mono" id="mon-process-table">
+                  <thead>
+                    <tr>
+                      <th class="sortable-th" data-sort="pid">PID <span class="sort-arrow">↕</span></th>
+                      <th class="sortable-th" data-sort="username">USUÁRIO <span class="sort-arrow">↕</span></th>
+                      <th class="sortable-th" data-sort="name">NOME DO PROCESSO <span class="sort-arrow">↕</span></th>
+                      <th class="sortable-th" data-sort="cpu_percent">CPU % <span class="sort-arrow">↕</span></th>
+                      <th class="sortable-th" data-sort="memory_percent">MEMÓRIA % <span class="sort-arrow">↕</span></th>
+                      <th class="sortable-th" data-sort="num_threads">THREADS <span class="sort-arrow">↕</span></th>
+                      <th>STATUS</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mon-process-tbody">
+                    <tr>
+                      <td colspan="7" class="loading-row">Coletando lista de processos via Glances...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+</main>
+
+    <!-- Bottom Status Strip -->
+    <footer id="bottom-strip" class="glass-panel">
+      <div class="strip-left">
+        <span class="strip-node mono">NODE: srv-edge-alpha01.demo-cloud.internal</span>
+        <span style="opacity:0.3;">|</span>
+        <span class="strip-kernel mono">KERNEL: 6.8.0-45-generic x86_64</span>
+      </div>
+
+      <div class="strip-center">
+        <span class="strip-sys-msg mono" id="footer-sys-msg">SISTEMA ESTÁVEL · PORTFOLIO DEMO EDITION</span>
+      </div>
+
+      <div class="strip-right">
+        <span class="strip-clock mono" id="footer-clock">--:--:-- UTC</span>
+      </div>
+    </footer>
+
+    <!-- Mobile Glass Bottom Navigation Bar (Fixo para Polegar) -->
+    <nav id="mobile-bottom-nav" class="glass-bottom-nav" aria-label="Navegação Mobile">
+      <button class="bottom-nav-item active" id="bnav-heroes" data-tab="heroes" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="bnav-icon">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+        <span>Apps</span>
+      </button>
+
+      <button class="bottom-nav-item" id="bnav-hud" data-tab="hud" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="bnav-icon">
+          <rect x="2" y="2" width="20" height="8" rx="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+        <span>Servidor</span>
+      </button>
+
+      <button class="bottom-nav-item" id="bnav-monitoring" data-tab="monitoring" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="bnav-icon">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+        <span>Telemetria</span>
+      </button>
+
+      <button class="bottom-nav-item" id="bnav-atmosphere" data-tab="atmosphere" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="bnav-icon">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+        </svg>
+        <span>Atmosfera</span>
+      </button>
+    </nav>
+
+    <!-- Overlay Backdrop para Dropdown/Sheet de Atmosfera -->
+    <div id="bg-dropdown-backdrop" class="glass-dropdown-backdrop"></div>
+
+    <!-- Dropdown / Bottom Sheet com Catálogo Completo de Atmosfera -->
+    <div id="bg-dropdown" class="glass-dropdown" role="dialog" aria-modal="true" aria-label="Seletor de Atmosfera">
+      <div class="dropdown-header-mobile">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+          <span class="mono" style="font-size: 0.72rem; letter-spacing: 0.08em; font-weight: 700;">ATMOSFERA & VISUAIS</span>
+        </div>
+        <button id="btn-close-bg-dropdown" class="close-sheet-btn" type="button" aria-label="Fechar">✕</button>
+      </div>
+
+      <div class="dropdown-section-header">SHADERS WEBGL EM TEMPO REAL</div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="softaurora">Soft Aurora <span class="item-badge">Boreal</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="particles">3D Particles <span class="item-badge">OGL 3D</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="ghostfibers">Ghost Fibers <span class="item-badge">Fibras</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="plasmawave">Plasma Wave <span class="item-badge">Plasma</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="strands">Light Strands <span class="item-badge">Filamentos</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="siderays">Side Rays <span class="item-badge">Feixes</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="beams">Volumetric Beams <span class="item-badge">Three.js</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="floatinglines">Floating Lines <span class="item-badge">Ondas 3D</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="silk">Liquid Silk <span class="item-badge">Seda</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="radar">Tactical Radar <span class="item-badge">Radar</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="ripplegrid">Ripple Grid <span class="item-badge">Grade</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="pixelblast">Pixel Blast <span class="item-badge">Pixels</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="magicrings">Magic Rings <span class="item-badge">Anéis</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="gridscan">Grid Scan <span class="item-badge">Laser</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="liquidchrome">Liquid Chrome <span class="item-badge">Cromo</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="linewaves">Line Waves <span class="item-badge">Linhas</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="ferrofluid">Ferrofluid <span class="item-badge">Fluido</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="dither">Dither Matrix <span class="item-badge">Retrô GL</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="darkveil">Dark Veil <span class="item-badge">Véu</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="webthreads">Web Threads <span class="item-badge">Quântico</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="topography">Topography <span class="item-badge">Relevo</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="balatro">Balatro Flow <span class="item-badge">Psicodélico</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="faultyterminal">Faulty Terminal <span class="item-badge">Glitch</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="morphslider">Morph Slider <span class="item-badge">Cinemático</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="antigravity">Antigravity <span class="item-badge">Gravidade Zero</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="aurora">Northern Aurora <span class="item-badge">Borealis</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="letterglitch">Letter Glitch <span class="item-badge">ASCII</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="plasma">Electric Plasma <span class="item-badge">Onda Seno</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="liquidether">Liquid Ether <span class="item-badge">Fluido</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="orb">Energy Orb <span class="item-badge">Orbe 3D</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="prism">Prismatic Beam <span class="item-badge">Prisma</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="prismaticburst">Prismatic Burst <span class="item-badge">Explosão</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="lightning">Thunder Lightning <span class="item-badge">Raios</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="evileye">Evil Eye <span class="item-badge">Olho 3D</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="lighttunnel">Light Tunnel <span class="item-badge">Túnel</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="ancidsquares">Acid Squares <span class="item-badge">Geometria</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="moltenmetal">Molten Metal <span class="item-badge">Metal</span></div>
+      <div class="dropdown-item" data-bg-type="shader" data-id="galaxybits">Galaxy Bits <span class="item-badge">Partículas</span></div>
+      
+      <div class="dropdown-divider"></div>
+      <div class="dropdown-section-header">COLEÇÕES FOTOGRÁFICAS (HD)</div>
+      <div class="dropdown-item" data-bg-type="gallery" data-id="red">Red Aesthetic <span class="item-badge">7 fotos</span></div>
+      <div class="dropdown-item" data-bg-type="gallery" data-id="soft">Gen X Soft Club <span class="item-badge">20 fotos</span></div>
+      <div class="dropdown-item" data-bg-type="gallery" data-id="flowers">Flowers & Nature <span class="item-badge">8 fotos</span></div>
+      <div class="dropdown-item" data-bg-type="gallery" data-id="gym">Gym & Focus <span class="item-badge">14 fotos</span></div>
+      <div class="dropdown-item" data-bg-type="gallery" data-id="motivation">Motivacional <span class="item-badge">17 fotos</span></div>
+      <div class="dropdown-item" data-bg-type="gallery" data-id="random">Slideshow Automático <span class="item-badge">Loop</span></div>
+
+      <div class="dropdown-divider"></div>
+      <div class="dropdown-item" id="btn-next-wallpaper" style="justify-content: center; font-weight: 600; color: #ffffff;">
+        <span>Próxima Foto (Manual)</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Application Scripts (WebGL como Módulo ES6 para compatibilidade total) -->
+  <script type="module" src="js/webgl-backgrounds.js?v=20260908_v4"></script>
+  <script src="js/app.js?v=20260908_v4"></script>
+
+  <!-- Docker Container Live Logs Modal (Apple Liquid Glass) -->
+  <div id="docker-logs-modal" class="glass-modal-backdrop" style="display: none;">
+    <div class="glass-modal">
+      <div class="modal-header glass-panel">
+        <div class="modal-title-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="modal-icon">
+            <polyline points="4 17 10 11 4 5"></polyline>
+            <line x1="12" y1="19" x2="20" y2="19"></line>
+          </svg>
+          <div class="modal-titles">
+            <h3 id="modal-container-name">docker-logs</h3>
+            <span class="mono modal-subtitle">STREAM DE LOGS AO VIVO DO CONTÊINER</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="modal-btn-copy" class="glass-button-sm mono" title="Copiar Logs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="btn-icon">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>COPIAR</span>
+          </button>
+          <button id="modal-btn-refresh" class="glass-button-sm mono" title="Recarregar Logs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M23 4v6h-6M1 20v-6h6"></path>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            <span>ATUALIZAR</span>
+          </button>
+          <button id="modal-btn-close" class="glass-button-sm close-btn" title="Fechar">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <pre class="terminal-console mono" id="modal-logs-console">Carregando stream de logs do contêiner...</pre>
+      </div>
+      <div class="modal-footer mono">
+        <span id="modal-logs-timestamp">Aguardando telemetria...</span>
+        <span class="modal-tip">Role para cima para pausar auto-scroll</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Architecture Info Modal (Apple Liquid Glass) -->
+  <div id="demo-info-modal" class="glass-modal-backdrop" style="display: none;">
+    <div class="glass-modal">
+      <div class="modal-header glass-panel">
+        <div class="modal-title-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="modal-icon">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <div class="modal-titles">
+            <h3 id="demo-modal-headline">Arquitetura da Solução</h3>
+            <span class="mono modal-subtitle">PORTFOLIO DE ENGENHARIA DE SOFTWARE & SISTEMAS DISTRIBUÍDOS</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="demo-modal-close" class="glass-button-sm close-btn" title="Fechar">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 24px;">
+        <div class="demo-info-modal-wrap" id="demo-modal-body-content">
+          <div class="demo-info-item">
+            <h4>Visão Arquitetural do Sistema</h4>
+            <p>Este painel foi desenvolvido para orquestração de servidores cloud e infraestruturas conteinerizadas de alta criticidade. Ele integra telemetria em streaming, aceleração gráfica via 34 shaders WebGL nativos em GPU e gerenciamento centralizado de microsserviços.</p>
+          </div>
+          <div class="demo-info-item">
+            <h4>Características Técnicas Demonstradas</h4>
+            <p>• <strong>Frontend Ultra-Glass:</strong> Design System translúcido proprietário, responsivo para desktop e dispositivos móveis.<br>
+• <strong>Motor Gráfico OGL:</strong> Shaders de computação visual em tempo real sem impacto no thread principal.<br>
+• <strong>Observabilidade Contínua:</strong> Gráficos sparkline em SVG dinâmico, monitoramento de CPU por núcleo, contadores de IO de disco, swap e rede.<br>
+• <strong>Isolamento & Privacidade:</strong> Camada de proteção com mascaramento completo de infraestrutura e dados proprietários.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mono" style="justify-content: space-between;">
+        <span style="color:#38bdf8;">MATEUS CELESTINO PRO · SOFTWARE ENGINEERING</span>
+        <span>STATUS: 100% OPERACIONAL</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
