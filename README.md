@@ -1,7 +1,7 @@
 # MCP OS // Virtual Cloud Infrastructure & Live Telemetry Hub
 ### 🚀 Portfolio Demo Edition — Enterprise Software Engineering
 
-[![Vercel Deployment](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![Vercel Deployment](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://mcp-os-vps-dashboard-demo.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Engine: WebGL Shaders](https://img.shields.io/badge/Engine-34_WebGL_Shaders-emerald?style=for-the-badge&logo=webgl)](https://webgl.org)
 [![Author: Mateus Celestino](https://img.shields.io/badge/Architect-Mateus_Celestino-purple?style=for-the-badge&logo=github)](https://github.com/MateusCelestinoProX)
